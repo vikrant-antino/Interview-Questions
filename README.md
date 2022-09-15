@@ -107,3 +107,58 @@
     3. **Updating:** In this phase, the component get updated in two ways, sending the new props and updating the state. This phase covers `shouldComponentUpdate()`, `componentWillUpdate()` and `componentDidUpdate()` lifecycle methods.
 
     4. **Unmounting:** In this last phase, the component is not needed and get unmounted from the browser DOM. This phase includes `componentWillUnmount()` lifecycle method.
+
+7. ### What is context?
+
+    *Context* provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
+    
+8. ### What is reconciliation?
+
+    When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called *reconciliation*.
+    
+## Senior
+
+1. ### What are error boundaries in React v16?
+
+    *Error boundaries* are components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
+    
+2. ### How do you memoize a component?
+
+    There are memoize libraries available which can be used on function components. For example `moize` library can memoize the component in another component.
+
+    ```jsx harmony
+    import moize from 'moize'
+    import Component from './components/Component' // this module exports a non-memoized component
+
+    const MemoizedFoo = moize.react(Component)
+
+    const Consumer = () => {
+      <div>
+        {'I will memoize the following entry:'}
+        <MemoizedFoo/>
+      </div>
+    }
+    ```
+ 3.  ### What is strict mode in React?
+
+    `React.StrictMode` is an useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for *development mode* only.
+
+4. ### What are render props?
+
+     **Render Props** is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.
+
+5. ### What is code-splitting?
+     Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature. 
+     
+6. ### What is the benefit of strict mode?
+     The <StrictMode> will be  helpful in the below cases
+
+     1. Identifying components with **unsafe lifecycle methods**.
+     2. Warning about **legacy string ref** API usage.
+     3. Detecting unexpected **side effects**.
+     4. Detecting **legacy context** API.
+     5. Warning about deprecated findDOMNode usage
+    
+7. ### What are forward refs?
+
+    *Ref forwarding* is a feature that lets some components take a *ref* they receive, and pass it further down to a child.
