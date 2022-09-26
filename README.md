@@ -72,6 +72,29 @@
 10. ### What is the difference between state and props?
 
     Both *props* and *state* are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
+
+11. ### What are hooks?
+     Hooks is a special function (introduced as a new feature in React 16.8) that lets you use state and other React features without writing a class.
+
+     Let's see an example of useState hook:
+     ```jsx
+     import { useState } from 'react';
+
+     function Example() {
+       // Declare a new state variable, which we'll call "count"
+       const [count, setCount] = useState(0);
+
+       return (
+         <div>
+           <p>You clicked {count} times</p>
+           <button onClick={() => setCount(count + 1)}>
+             Click me
+           </button>
+         </div>
+       );
+     }
+     ```
+     **Note:** Hooks can be used inside an existing function component.
     
 ## Intermediate
 
